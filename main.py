@@ -117,7 +117,7 @@ def level():
 
     # Initialisation de l'écran
     screen = pygame.display.set_mode((500, 750))
-    background = pygame.image.load("assets/launcher_background.jpg")
+    background = pygame.image.load("assets/launcher_background.png")
     background = pygame.transform.scale(background, (500, 750))  # Redimensionner l'image
 
     # Couleurs
