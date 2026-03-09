@@ -10,7 +10,7 @@
 2. Open a command prompt or PowerShell and navigate to the project directory.
 3. Install the required Python packages using pip:
    ```
-   pip install pygame opencv-python
+   pip install pygame Pillow
    ```
 
 ### Running the Project
@@ -25,3 +25,4 @@
 - The project is currently under development.
 - Make sure your Python environment is properly configured.
 
+d.ahmadfadel@gmail.com
