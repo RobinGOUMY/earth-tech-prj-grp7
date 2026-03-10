@@ -12,6 +12,10 @@
    ```
    pip install pygame Pillow
    ```
+   Or
+   ```
+   python -m pip install pygame-ce
+   ```
 
 ### Running the Project
 1. Ensure all asset files are present in the `assets/` directory.
