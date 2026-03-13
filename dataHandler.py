@@ -1,7 +1,8 @@
 import pygame
 import random
 import os
-
+pygame.init()
+font = pygame.font.Font("NotoEmoji-VariableFont_wght.ttf", 20)
 # ============================================================
 # EDUCATIONAL DATA ABOUT WASTE
 # ============================================================
@@ -107,7 +108,8 @@ class Player:
         screen.blit(score_text, (15, 15))
 
         # Lives (small green hearts)
-        vies_text = font.render(f"Vies: {'♥ ' * self.vies}", True, (100, 255, 100))
+        font_vies = pygame.font.Font("NotoEmoji-VariableFont_wght.ttf", 20)
+        vies_text = font_vies.render(f"{'♥' * self.vies}", True, (100, 255, 100))
         screen.blit(vies_text, (180, 15))
 
         # Combo
