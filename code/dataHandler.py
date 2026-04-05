@@ -2,7 +2,9 @@ import pygame
 import random
 import os
 pygame.init()
-font = pygame.font.Font("NotoEmoji-VariableFont_wght.ttf", 20)
+font = pygame.font.Font(None, 20)
+
+
 # ============================================================
 # EDUCATIONAL DATA ABOUT WASTE
 # ============================================================
@@ -47,8 +49,7 @@ ECO_FACTS = [
 ]
 
 # Path to assets
-ASSETS_PATH = os.path.join(os.path.dirname(os.path.abspath(__file__)), "assets")
-
+ASSETS_PATH = os.path.join(os.path.dirname(os.path.abspath(__file__)), "..\\assets")
 
 # ============================================================
 # PLAYER CLASS - Manages the player and score
@@ -108,7 +109,7 @@ class Player:
         screen.blit(score_text, (15, 15))
 
         # Lives (small green hearts)
-        font_vies = pygame.font.Font("NotoEmoji-VariableFont_wght.ttf", 20)
+        font_vies = pygame.font.Font("..//NotoEmoji-VariableFont_wght.ttf", 20)
         vies_text = font_vies.render(f"{'♥' * self.vies}", True, (100, 255, 100))
         screen.blit(vies_text, (180, 15))
 
@@ -161,7 +162,7 @@ class Player:
             self.fact_actuel = random.choice(ECO_FACTS)
             self.fact_timer = 180  # 3 sec
 
-    def perdre_vie(self):
+    def lose_life(self):
         """A waste has hit the ground."""
         self.vies -= 1
         self.combo = 0  # Reset combo
