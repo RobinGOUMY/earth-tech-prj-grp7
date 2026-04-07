@@ -1,8 +1,6 @@
 import pygame
 import random
 import os
-pygame.init()
-font = pygame.font.Font(None, 20)
 
 
 # ============================================================
@@ -49,7 +47,8 @@ ECO_FACTS = [
 ]
 
 # Path to assets
-ASSETS_PATH = os.path.join(os.path.dirname(os.path.abspath(__file__)), "..\\assets")
+ASSETS_PATH = os.path.join(os.path.dirname(os.path.abspath(__file__)), "../assets")
+FONT_PATH = os.path.join(ASSETS_PATH, "NotoEmoji-VariableFont_wght.ttf")
 
 # ============================================================
 # PLAYER CLASS - Manages the player and score
@@ -109,7 +108,7 @@ class Player:
         screen.blit(score_text, (15, 15))
 
         # Lives (small green hearts)
-        font_vies = pygame.font.Font("..//NotoEmoji-VariableFont_wght.ttf", 20)
+        font_vies = pygame.font.Font(FONT_PATH, 20)
         vies_text = font_vies.render(f"{'♥' * self.vies}", True, (100, 255, 100))
         screen.blit(vies_text, (180, 15))
 

@@ -2,9 +2,9 @@ import pygame
 import sys
 import os
 import random
-from constant import *
-from game import main
-from dataHandler import DECHETS_DATA, ASSETS_PATH, Player
+from modules.constant import *
+from modules.game import *
+from modules.dataHandler import *
 
 # ============================================================
 # LEVEL SELECTION SCREEN
@@ -68,12 +68,6 @@ def level_screen(player):
             
             screen.blit(shadow, (text_rect.x + 2, text_rect.y + 2))
             screen.blit(text, text_rect)
-
-            # Add underline if hovering
-            # if is_hover:
-            #     pygame.draw.line(screen, JAUNE,
-            #                      (btn["rect"].left + 40, btn["rect"].bottom - 5),
-            #                      (btn["rect"].right - 40, btn["rect"].bottom - 5), 3)
 
         pygame.display.update()
 
@@ -194,12 +188,6 @@ def help_screen():
         screen.blit(shadow, (text_rect.x + 2, text_rect.y + 2))
         screen.blit(text, text_rect)
 
-        # Underline on hover
-        # if is_hover:
-        #     pygame.draw.line(screen, JAUNE,
-        #                      (btn_back["rect"].left + 40, btn_back["rect"].bottom - 5),
-        #                      (btn_back["rect"].right - 40, btn_back["rect"].bottom - 5), 3)
-
         pygame.display.update()
 
         for event in pygame.event.get():
@@ -230,8 +218,8 @@ def launcher():
     # Initialize Player instance
     player = Player()
 
-    # Load Background (Manual Path)
-    bg_path = "..\\assets\\launcher_background.png"
+    # Load Background
+    bg_path = os.path.join(ASSETS_PATH, "launcher_background.png")
     background = pygame.image.load(bg_path).convert()
     background = pygame.transform.scale(background, (SCREEN_WIDTH, SCREEN_HEIGHT))
 
@@ -268,10 +256,6 @@ def launcher():
             screen.blit(shadow, (text_rect.x + 2, text_rect.y + 2))
             screen.blit(text, text_rect)
 
-            # if is_hover:
-            #     pygame.draw.line(screen, JAUNE,
-            #                      (btn["rect"].left + 40, btn["rect"].bottom - 5),
-            #                      (btn["rect"].right - 40, btn["rect"].bottom - 5), 3)
 
         # Background decoration logic: Spawn falling waste
         deco_timer += 1

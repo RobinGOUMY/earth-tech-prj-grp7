@@ -1,3 +1,4 @@
+<<<<<<< Updated upstream
 # EcoCatch - Earth Tech Project (Group 7)
 
 EcoCatch is an educational Python/Pygame mini-game where the player must click on falling waste before it hits the ground.
@@ -109,4 +110,45 @@ The game includes educational information about:
 When a game session starts, a CodeCarbon tracker is launched automatically.
 At the end of the session, emissions are printed in the console and saved in `code/emissions.csv`.
 
+=======
+# Earth Tech
+
+Jeu Python sur le thème de l'écologie, réalisé avec `pygame-ce`.
+
+## Prérequis
+- Python 3.13 ou plus récent
+- Windows, macOS ou Linux
+
+## Installation
+1. Ouvre un terminal dans le dossier du projet.
+2. Installe les dépendances nécessaires :
+
+```bash
+python -m pip install pygame-ce codecarbon
+```
+
+Si tu préfères utiliser un environnement virtuel, crée-le d'abord puis installe les paquets dedans.
+
+## Lancement
+Depuis la racine du projet, lance :
+
+```bash
+python main.py
+```
+
+Le point d'entrée importe le jeu depuis le dossier `modules/`, donc il faut lancer le script depuis la racine du projet et pas directement depuis un sous-dossier.
+
+## Structure du projet
+- `main.py` : point d'entrée
+- `modules/constant.py` : constantes globales
+- `modules/dataHandler.py` : données, classes et chargement des ressources
+- `modules/effect.py` : effets visuels
+- `modules/game.py` : boucle principale du jeu
+- `modules/screen.py` : écrans du menu et de l'aide
+- `assets/` : images, polices et autres ressources
+
+## Dépendances
+- `pygame-ce` : affichage, événements, boucles de jeu
+- `codecarbon` : suivi optionnel des émissions carbone affiché dans `main.py`
+>>>>>>> Stashed changes
 

@@ -1,4 +1,4 @@
-from screen import launcher
+from modules.screen import *
 from codecarbon import EmissionsTracker
 
 
@@ -8,7 +8,7 @@ from codecarbon import EmissionsTracker
 
 
 # Initialize the tracker
-tracker = EmissionsTracker()
+tracker = EmissionsTracker(save_to_file=False)
 tracker.start()
 
 try:
@@ -17,4 +17,4 @@ try:
 finally:
     # Important: ensures the tracker stops even if the game crashes
     emissions: float = tracker.stop()
-    print(f"CO2 emissions for this session: {emissions:.6f} kg")
+    print(f"CO2 emissions for this session: {round(emissions, 6)} kg")

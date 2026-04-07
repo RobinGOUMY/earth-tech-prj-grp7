@@ -9,7 +9,7 @@ SCREEN_WIDTH = 500
 SCREEN_HEIGHT = 750
 FPS_GAME = 60
 FPS_MENU = 30
-GROUND_Y = 650           # Y position of the ground
+GROUND_Y = 650
 
 # Eco friendly theme colors
 VERT_FONCE = (30, 100, 60)

@@ -1,10 +1,11 @@
 import pygame
 import sys
 import os
-import math
-from constant import *
-from effect import ParticleEffect, FloatingText
-from dataHandler import SpawnManager, ASSETS_PATH
+from modules.constant import *
+from modules.effect import ParticleEffect, FloatingText
+from modules.dataHandler import SpawnManager, ASSETS_PATH, FONT_PATH
+
+
 
 # ============================================================
 # MAIN GAME
@@ -15,28 +16,13 @@ def main(player):
     pygame.init()
     screen = pygame.display.set_mode((SCREEN_WIDTH, SCREEN_HEIGHT))
     pygame.display.set_caption("EcoCatch - Save the City!")
-
-    # --- Manual Path Configuration ---
-    # Using relative paths to point to the root directory from the /code folder
-    FONT_PATH = "..\\NotoEmoji-VariableFont_wght.ttf"
-    ASSETS_FOLDER = "..\\assets"
     
-    # Load Font
-    try:
-        game_font = pygame.font.Font(FONT_PATH, 20)
-    except FileNotFoundError:
-        # Fallback to default if font is missing
-        game_font = pygame.font.Font(None, 20)
+    game_font = pygame.font.Font(FONT_PATH, 20)
 
     # Load Background
-    bg_path = os.path.join(ASSETS_FOLDER, "game_background.png")
-    try:
-        background = pygame.image.load(bg_path).convert()
-        background = pygame.transform.scale(background, (SCREEN_WIDTH, SCREEN_HEIGHT))
-    except pygame.error:
-        # Fallback: Solid color background if image fails
-        background = pygame.Surface((SCREEN_WIDTH, SCREEN_HEIGHT))
-        background.fill(VERT_FONCE)
+    bg_path = os.path.join(ASSETS_PATH, "game_background.png")
+    background = pygame.image.load(bg_path).convert()
+    background = pygame.transform.scale(background, (SCREEN_WIDTH, SCREEN_HEIGHT))
 
     # --- Initialization ---
     player.replay()  # Reset player stats (score, lives, etc.)
@@ -53,7 +39,6 @@ def main(player):
     running = True
     while running and not player.check_end():
 
-        # 1. Event Handling
         for event in pygame.event.get():
             if event.type == pygame.QUIT:
                 pygame.quit()
@@ -77,13 +62,11 @@ def main(player):
                         # Update player stats
                         player.attraper_dechet() # Function to increment score/combo
 
-                        # Visual Feedback: Particles
                         particles.append(ParticleEffect(
                             obj.rect.centerx, obj.rect.centery,
                             color=(100, 255, 100)
                         ))
 
-                        # Visual Feedback: Floating point text
                         points = 10
                         if player.combo >= 5:
                             points = 30
@@ -109,7 +92,6 @@ def main(player):
                             player.fact_timer = 120
                         break
 
-        # 2. Update Logic
         # Spawn management
         spawn_manager.update(falling_objects, player)
 
@@ -143,7 +125,6 @@ def main(player):
             if ft.is_done():
                 floating_texts.remove(ft)
 
-        # 3. Rendering
         # Draw background
         screen.blit(background, (0, 0))
 
