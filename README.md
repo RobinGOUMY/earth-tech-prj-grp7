@@ -4,9 +4,9 @@ EcoCatch is an educational Python mini-game focused on ecology.
 The player must click falling waste before it hits the ground.
 
 The project combines:
-- arcade gameplay (score, combo, lives, difficulty)
-- environmental awareness (decomposition times, educational messages)
-- per-session CO2 tracking with CodeCarbon
+- Arcade gameplay (score, combo, lives, difficulty)
+- Environmental awareness (decomposition times, educational messages)
+- Per-session CO2 tracking with CodeCarbon
 
 ## Authors
 
