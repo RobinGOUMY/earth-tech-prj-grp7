@@ -104,7 +104,7 @@ class Player:
         screen.blit(hud_surface, (5, 5))
 
         # Score
-        score_text = font.render(f"Score: {self.score}", True, (255, 255, 255))
+        score_text = font.render(f"Score : {self.score}", True, (255, 255, 255))
         screen.blit(score_text, (15, 15))
 
         # Lives (small green hearts)

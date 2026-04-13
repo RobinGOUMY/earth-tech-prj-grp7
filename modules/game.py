@@ -15,7 +15,7 @@ def main(player):
     """Main game loop handling gameplay logic and rendering."""
     pygame.init()
     screen = pygame.display.set_mode((SCREEN_WIDTH, SCREEN_HEIGHT))
-    pygame.display.set_caption("EcoCatch - Save the City!")
+    pygame.display.set_caption("EcoCatch - Sauve la ville !")
     
     game_font = pygame.font.Font(FONT_PATH, 20)
 
@@ -88,7 +88,7 @@ def main(player):
                         if obj.dechet_info:
                             name = obj.dechet_info[1]
                             time = obj.dechet_info[2]
-                            player.fact_actuel = f"{name}: {time} to decompose"
+                            player.fact_actuel = f"{name} : {time} pour se décomposer"
                             player.fact_timer = 120
                         break
 
@@ -111,7 +111,7 @@ def main(player):
                 ))
                 floating_texts.append(FloatingText(
                     obj.rect.centerx, GROUND_Y - 30,
-                    "Miss!", (255, 100, 100)
+                    "Rate !", (255, 100, 100)
                 ))
 
         # Update visual effects
@@ -150,7 +150,7 @@ def main(player):
         if level_display_timer > 0:
             level_display_timer -= 1
             font_level = pygame.font.Font(None, 48)
-            level_text = font_level.render(f"Level {player.current_level}", True, JAUNE)
+            level_text = font_level.render(f"Niveau {player.current_level}", True, JAUNE)
             level_rect = level_text.get_rect(center=(SCREEN_WIDTH // 2, SCREEN_HEIGHT // 2))
 
             # Overlay box for the level text

@@ -14,7 +14,7 @@ def level_screen(player):
     """Screen allowing the player to configure game difficulty."""
     pygame.init()
     screen = pygame.display.set_mode((SCREEN_WIDTH, SCREEN_HEIGHT))
-    pygame.display.set_caption("EcoCatch - Settings")
+    pygame.display.set_caption("EcoCatch - Paramètres")
     clock = pygame.time.Clock()
 
     # Load Background
@@ -33,9 +33,9 @@ def level_screen(player):
     btn_back = pygame.Rect(115, 580, 280, 55)
 
     buttons = [
-        {"rect": btn_easier, "text": "Easier", "action": "easier"},
-        {"rect": btn_harder, "text": "Harder", "action": "harder"},
-        {"rect": btn_back, "text": "Back", "action": "back"},
+        {"rect": btn_easier, "text": "Plus facile", "action": "easier"},
+        {"rect": btn_harder, "text": "Plus difficile", "action": "harder"},
+        {"rect": btn_back, "text": "Retour", "action": "back"},
     ]
 
     while True:
@@ -43,14 +43,14 @@ def level_screen(player):
         mouse_x, mouse_y = pygame.mouse.get_pos()
 
         # Render Title with shadow
-        title_text = font_title.render("Settings", True, BLANC)
-        title_shadow = font_title.render("Settings", True, (0, 50, 0))
+        title_text = font_title.render("Paramètres", True, BLANC)
+        title_shadow = font_title.render("Paramètres", True, (0, 50, 0))
         title_rect = title_text.get_rect(center=(SCREEN_WIDTH // 2 + 5 , 340))
         screen.blit(title_shadow, (title_rect.x + 2, title_rect.y + 2))
         screen.blit(title_text, title_rect)
 
         # Display current level stats (Gravity & Parabolic chance)
-        level_info = f"Gravity: {round(player.GRAVITY, 2)} | Parabolas: {int(player.PARABOLIC_CHANCE*100)}%"
+        level_info = f"Gravité : {round(player.GRAVITY, 2)} | Paraboles : {int(player.PARABOLIC_CHANCE*100)}%"
         info_text = font_info.render(level_info, True, (200, 255, 200))
         info_shadow = font_info.render(level_info, True, (0, 30, 0))
         info_rect = info_text.get_rect(center=(SCREEN_WIDTH // 2 + 5, 380))
@@ -97,7 +97,7 @@ def help_screen():
     """Screen displaying game instructions and rules."""
     pygame.init()
     screen = pygame.display.set_mode((SCREEN_WIDTH, SCREEN_HEIGHT))
-    pygame.display.set_caption("EcoCatch - Help")
+    pygame.display.set_caption("EcoCatch - Aide")
     clock = pygame.time.Clock()
 
     # Load Background
@@ -111,27 +111,27 @@ def help_screen():
 
     # Instruction lines
     rules = [
-        "How to play:",
+        "Comment jouer :",
         "",
-        "Waste is falling from the sky!",
-        "Click on it to catch it",
-        "before it hits the ground.",
+        "Des déchets tombent du ciel !",
+        "Clique dessus pour les attraper",
+        "avant qu'ils ne touchent le sol.",
         "",
-        "If a piece of waste hits the ground,",
-        "you lose a life (Max: 5).",
+        "Si un déchet touche le sol,",
+        "tu perds une vie (max : 5).",
         "",
-        "Catch several in a row",
-        "to trigger combos and earn",
-        "more points!",
+        "Attrape-en plusieurs d'affilée",
+        "pour activer les combos et gagner",
+        "plus de points !",
         "",
-        "Watch out: some waste",
-        "is thrown from buildings!",
+        "Attention : certains déchets",
+        "sont lancés depuis les immeubles !",
         "",
-        "Learn how long each type",
-        "takes to decompose."
+        "Apprends combien de temps chaque type",
+        "met à se décomposer."
     ]
 
-    btn_back = {"rect": pygame.Rect(115, 680, 270, 55), "text": "Back", "action": "back"}
+    btn_back = {"rect": pygame.Rect(115, 680, 270, 55), "text": "Retour", "action": "back"}
 
     while True:
         screen.blit(background, (0, 0))
@@ -143,8 +143,8 @@ def help_screen():
         screen.blit(overlay, (30, 110))
 
         # Render Help Title
-        title_text = font_title.render("Help", True, BLANC)
-        title_shadow = font_title.render("Help", True, (0, 50, 0))
+        title_text = font_title.render("Aide", True, BLANC)
+        title_shadow = font_title.render("Aide", True, (0, 50, 0))
         title_rect = title_text.get_rect(center=(SCREEN_WIDTH // 2, 150))
         screen.blit(title_shadow, (title_rect.x + 2, title_rect.y + 2))
         screen.blit(title_text, title_rect)
@@ -152,7 +152,7 @@ def help_screen():
         # Render instruction text line by line
         y_pos = 200
         for line in rules:
-            color = VERT_HOVER if line == "How to play:" else BLANC
+            color = VERT_HOVER if line == "Comment jouer :" else BLANC
             if line == "":
                 y_pos += 12
                 continue
@@ -235,12 +235,12 @@ def launcher():
         mouse_x, mouse_y = pygame.mouse.get_pos()
 
         # Update Play button text based on game state
-        btn_play_text = "Replay" if has_played else "Play"
+        btn_play_text = "Rejouer" if has_played else "Jouer"
         buttons = [
             {"rect": pygame.Rect(115, 435, 270, 55), "text": btn_play_text, "action": "play"},
-            {"rect": pygame.Rect(115, 505, 270, 55), "text": "Difficulty", "action": "level"},
-            {"rect": pygame.Rect(115, 579, 270, 55), "text": "Help", "action": "help"},
-            {"rect": pygame.Rect(115, 650, 270, 55), "text": "Quit", "action": "quit"},
+            {"rect": pygame.Rect(115, 505, 270, 55), "text": "Difficulté", "action": "level"},
+            {"rect": pygame.Rect(115, 579, 270, 55), "text": "Aide", "action": "help"},
+            {"rect": pygame.Rect(115, 650, 270, 55), "text": "Quitter", "action": "quit"},
         ]
 
         # Render menu buttons
